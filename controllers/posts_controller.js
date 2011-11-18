@@ -4,6 +4,7 @@
 
 var Post = require( '../models/post.js' );
 var util = require( 'util' );
+var EventEmitter = require( 'events' ).EventEmitter;
 
 module.exports.index = exports.list_posts = function( req, res ) {
   
@@ -26,6 +27,8 @@ module.exports.create_post = function( req, res ) {
 		
 		if ( !err ) {
 			console.log( 'Success!' );
+			var emitter = new EventEmitter();
+			emitter.emit( 'new_post_save', {a: "YAY"} );
 		} else {
 			console.log( 'Had an error' + err );
 		}

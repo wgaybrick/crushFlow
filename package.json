@@ -5,6 +5,7 @@
   , "dependencies": {
       "express": "2.5.0"
     , "ejs": ">= 0.0.1"
-		, "mongoose": "2.x.x"
+    , "mongoose": "2.x.x"
+    , "socket.io": ""
   }
 }

@@ -8,16 +8,25 @@ var express = require('express')
 	, mongoose = require( 'mongoose' );
 
 var app = module.exports = express.createServer();
+var io = require( 'socket.io' ).listen( app );
+
+io.sockets.on( 'connection', function ( socket ) {
+  socket.on( 'new_post_save', function ( data ) {
+    console.log( "HEEELLLLOOOO!" );
+    socket.emit( 'new_post_show', data );
+    console.log(data);
+  } );
+} );
 
 // Configuration
 
-app.configure(function () {
+app.configure( function () {
   app.set( 'views' , __dirname + '/views' );
   app.set( 'view engine', 'ejs' );
   app.use( express.bodyParser() );
   app.use( express.methodOverride() );
   app.use( app.router );
-  app.use( express.static(__dirname + '/public') );
+  app.use( express.static( __dirname + '/public' ) );
 });
 
 app.configure( 'development', function () {
@@ -39,7 +48,6 @@ for ( var i = 0; i < routes.length; i++ ) {
 	var path = routes[ i ][ "path" ];
 	var handler = routes[ i ][ "handler" ];
 	app[ method ]( path, handler );
-}
 
 var port = process.env.PORT || 3000;
 

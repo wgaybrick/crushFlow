@@ -40,3 +40,11 @@
   
 </div>
 <div id="footer">&copy; FaceCrush 2011 </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect( 'http://localhost' );
+  socket.on( 'new_post_show', function (data) {
+    console.log(data);
+  } );
+</script>
