@@ -8,15 +8,6 @@ var express = require('express')
 	, mongoose = require( 'mongoose' );
 
 var app = module.exports = express.createServer();
-var io = require( 'socket.io' ).listen( app );
-
-io.sockets.on( 'connection', function ( socket ) {
-  socket.on( 'new_post_save', function ( data ) {
-    console.log( "HEEELLLLOOOO!" );
-    socket.emit( 'new_post_show', data );
-    console.log(data);
-  } );
-} );
 
 // Configuration
 
