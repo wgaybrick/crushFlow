@@ -18,7 +18,7 @@ app.configure( function () {
   app.use( express.methodOverride() );
   app.use( app.router );
   app.use( express.static( __dirname + '/public' ) );
-});
+} );
 
 app.configure( 'development', function () {
   app.use( express.errorHandler( { dumpExceptions: true, showStack: true } ) );
@@ -39,6 +39,7 @@ for ( var i = 0; i < routes.length; i++ ) {
 	var path = routes[ i ][ "path" ];
 	var handler = routes[ i ][ "handler" ];
 	app[ method ]( path, handler );
+}
 
 var port = process.env.PORT || 3000;
 
