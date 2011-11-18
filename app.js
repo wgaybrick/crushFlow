@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-var express = require( 'express' )
-	, mongoose = require( 'mongoose' )
-	, routes = require( './routes.js' );
+var express = require('express')
+  , routes = require('./routes.js')
+	, mongoose = require( 'mongoose' );
 
 var app = module.exports = express.createServer();
 

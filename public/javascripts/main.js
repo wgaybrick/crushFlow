@@ -1,57 +1,59 @@
-$(document).ready(function(){
+$(  document).ready( function () {
     
     //what happens when you click the new crush button?
-    $('#new_crush_button').click(insertNewPost);
+    $('#new_crush_button').click( insertNewPost );
     
     //what happens when you click the submit post button?
-    $('#submit_post').click(submitPost);
+    $('#submit_post').click( ajaxPost );
     
     
-    //---This code handles the default placeholder text
-    $('.defaultText').live('focus', function(){
-        if ( $(this).val() === $(this).attr("alt") )
-           $(this).val("");
-    });  
-    $('.defaultText').live('blur', function(){
-        if ( $(this).val() === "" )
-            $(this).val( $(this).attr("alt") );
-    });
-    //-- End placeholder code
+    // This code handles the default placeholder text
+    $( '.defaultText' ).focus( function () {
+        if ( $( this ).val() === $( this ).attr( "alt" ) )
+        	$( this ).val( "" );
+    } );  
+    $( '.defaultText' ).blur( function () {
+        if ( $( this ).val() === "" )
+        	$( this ).val( $( this ).attr( "alt" ) );
+    } );
+    // End placeholder code
     
 });
 
-//Create post using ajax
+// Hide new post button and show insert post form
+function insertNewPost() {
+	$( '#new_crush_box' ).show();
+	$( '#new_crush_button' ).hide();
+}
+
+// Create post using ajax
 function ajaxPost() {
   var title = $( this ).siblings( 'input' ).val();
   var content = $( this ).siblings( 'textarea' ).val();
   
-  alert( title );
-  alert( content );
-}
+	$.post(
+		"/",
+		{ post: { title: title, content: content } },
+		function (data) {
+			
+			// Clone an existing post, and set values of the new post
+		  $new_post = $( '.postbox' ).first().clone();
+		  $new_post.find( '.post_title' ).html( title );
+		  $new_post.find( '.post_body' ).html( content );
+		  $new_post.find( '.post_time' ).html( 'just now.' );
 
+			// Hide the new post so we can slide it down nicely
+			$new_post.css( 'display', 'none' );	
+			
+		  // Insert the new post in the page
+		  $( '#new_crush_box' ).after( $new_post );
 
-//Our insert post function
-function insertNewPost(){
-    //hide the button and show our new post box
-    $('#new_crush_button').hide();
-    $('#new_crush_box').show();
-}
-
-
-//Our submit post function
-function submitPost(){
-    
-   //clone an existing post, and set values of the new post
-   $new_post = $('.postbox').first().clone();
-   $new_post.find(".post_title").html( $("#new_post_title").val() );
-   $new_post.find(".post_body").html( $("#new_post_body").val() );
-   $new_post.find(".post_time").html( "just now.");
-   
-   //insert the new post in the page
-   $('#new_crush_box').after($new_post);
-   
-   //then hide the new_post box and re show the new button
-   $('#new_crush_box').hide();
-   $('#new_crush_button').show();
-
+		  // Finally, slide in the new post, hide the new_post box,
+		 	// and re-show the add a crush button
+			$( '#new_crush_box' ).hide();
+			$( '#new_crush_button' ).show();
+			$new_post.slideDown( 'slow', function () {
+			} );
+		}
+	);
 }

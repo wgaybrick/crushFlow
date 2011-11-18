@@ -3,7 +3,7 @@
  */
 
 var Post = require( '../models/post.js' );
-var Util = require( 'util' );
+var util = require( 'util' );
 
 module.exports.index = exports.list_posts = function( req, res ) {
   
@@ -21,6 +21,7 @@ module.exports.index = exports.list_posts = function( req, res ) {
  */	
 
 module.exports.create_post = function( req, res ) {
+
 	new Post( { title: req.body.post.title, content: req.body.post.content } ).save( function (err) {
 		
 		if ( !err ) {
