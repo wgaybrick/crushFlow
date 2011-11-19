@@ -3,9 +3,9 @@
  */
 
 var Post = require( '../models/post.js' );
-var Util = require( 'util' );
+var util = require( 'util' );
 
-module.exports.index = exports.list_posts = function( req, res ) {
+module.exports.index = module.exports.list_posts = function( req, res ) {
   
 	Post.find( function ( err, posts ) {
 		

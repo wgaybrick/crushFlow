@@ -7,11 +7,12 @@ var postSchema = new Schema( {
 	,	date    : { type: Date, default: Date.now }
 } );
 
-postSchema.methods.date_display = function ( cb ) {
+postSchema.methods.date_display = function () {
 	var date = this.date.getDate();
 	var month = this.date.getMonth() + 1;
 	var year = this.date.getFullYear();
 	var dateString = month + "/" + date + "/" + year;
 	return dateString;
 };
+
 module.exports = mongoose.model( 'Post', postSchema );
