@@ -4,8 +4,9 @@
  */
 
 var express = require( 'express' )
-	, mongoose = require( 'mongoose' )
-	, routes = require( './routes.js' );
+var mongoose = require( 'mongoose' )
+var routes = require( './routes.js' );
+
 
 var app = module.exports = express.createServer();
 
