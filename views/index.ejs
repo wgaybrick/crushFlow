@@ -18,25 +18,33 @@
   <div id="new_crush_button">Post a Crush</div>
   
   <div id="new_crush_box" style="display:none">
-    <form method="post" action="/">
-      <input id="new_post_title" class="defaultText" value="Title" alt="Title"
-        name="post[title]"/>
-      <textarea id="new_post_body" class="defaultText"
-        alt="omg on cross campus" name="post[content]">omg on cross campus</textarea>
-      <input type="submit" value="Submit!" id="submit_post" />
-    </form>
+    <input id="new_post_title" class="defaultText" value="Title" alt="Title" />
+    <textarea id="new_post_body" class="defaultText" alt="omg on cross campus">omg on cross campus</textarea>
+    <button id="submit_post">Submit!</button>
+  </div>
+
+  <div class="postbox">
+    <h2 class="post_title">sick flow</h2>
+    <p class="post_body">totally crushing on my hackyale prof. Tall, whimsical good locks 
+      and a flow that just won't stop. Go adead, will. Teach me how code.</p>
+    <div class="post_time">4 hours ago</div>
   </div>
   
-  <% for ( var i = 0; i < posts.length; i++ )  { %>
+  <div class="postbox">
+    <h2 class="post_title">SPOTTED. Miles Grimshaw</h2>
+    <p class="post_body">looking all british and delicious.</p>
+    <div class="post_time">1 day ago</div>
+  </div>
   
-    <div class="postbox">
-      <h2 class="post_title"><%= posts[ i ].title %></h2>
-      <p class="post_body"><%= posts[ i ].content %></p>
-      <div class="post_time"><%= posts[ i ].date_display() %></div>
-    </div>
-  
-  
-  <% } %>
+  <div class="postbox">
+    <h2 class="post_title">Hey professor Croom</h2>
+    <p class="post_body">Yeah, mr 'Ionly use Windows' to have 
+      an excuse to talk to you in HackYale workshop. I hate this Toshiba 
+      piece of crap so much, but you're worth it. Also I can't get Node
+       installed...</p>
+    <div class="post_time">1 day ago</div>
+  </div>
+
   
 </div>
 <div id="footer">&copy; FaceCrush 2011 </div>
