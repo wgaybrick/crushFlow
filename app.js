@@ -9,7 +9,13 @@ var express = require( 'express' )
 
 var app = module.exports = express.createServer()
   , io = require( 'socket.io' ).listen( app );
-  
+
+// assuming io is the Socket.IO server object
+io.configure( function () { 
+  io.set( "transports", ["xhr-polling"] ); 
+  io.set( "polling duration", 10 ); 
+} );
+
 var posts_controller = require( './controllers/posts_controller.js' )
 
 // Configuration
