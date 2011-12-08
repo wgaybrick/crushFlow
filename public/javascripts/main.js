@@ -1,6 +1,6 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://localhost' );
+    var socket = io.connect();
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
     } );
