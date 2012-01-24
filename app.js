@@ -1,13 +1,16 @@
-
 /**
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes.js')
+var express = require( 'express' )
+  , routes = require( './routes.js' )
+  , socket_listeners = require( './socket_listeners.js' )
 	, mongoose = require( 'mongoose' );
 
-var app = module.exports = express.createServer();
+var app = module.exports = express.createServer()
+  , io = require( 'socket.io' ).listen( app );
+  
+var posts_controller = require( './controllers/posts_controller.js' )
 
 // Configuration
 
@@ -40,6 +43,27 @@ for ( var i = 0; i < routes.length; i++ ) {
 	var handler = routes[ i ][ "handler" ];
 	app[ method ]( path, handler );
 }
+
+// Attach socket listeners
+io.sockets.on( 'connection', function ( socket ) {
+  
+  for ( var i = 0; i < socket_listeners.length; i++ ) {
+    
+    var event = socket_listeners[ i ][ 'event' ];
+
+    var handler = socket_listeners[ i ][ 'handler' ];
+    
+    socket.on( event, function ( data ) {
+    
+      handler( data, socket );
+    
+    } );
+    
+  }
+  
+} );
+
+
 
 var port = process.env.PORT || 3000;
 
