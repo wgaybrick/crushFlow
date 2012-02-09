@@ -14,4 +14,10 @@ postSchema.methods.date_display = function ( cb ) {
 	var dateString = month + "/" + date + "/" + year;
 	return dateString;
 };
+
+postSchema.methods.date_utc = function ( cb ) {
+		var t = this.date;
+		var dateString = new Date(t.getUTCFullYear() , t.getUTCMonth() , t.getUTCDate() ,  t.getUTCHours() , t.getUTCMinutes() , t.getUTCSeconds());
+		return dateString;
+};
 module.exports = mongoose.model( 'Post', postSchema );

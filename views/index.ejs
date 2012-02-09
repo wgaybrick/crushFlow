@@ -5,8 +5,8 @@
   </div>
   
   <div id="new_crush_button">
-    <img id="speech-bubble" src="images/speech_bubble.png" />
-    <img id="post_button" src="images/post.png" />
+    <img id="new-crush-bubble" src="images/speech_bubble.png" />
+    <img id="new-crush-text" src="images/post.png" />
   </div>
   
   <img id="small-heart" src="images/small_heart.png" />
@@ -23,7 +23,7 @@
 	<!-- new post box, starts hidden -->
     <div id="new_crush_box" style="display:none">
       <span id="new_post_label">To:</span>
-	  <input id="new_post_title" class="defaultText" value="Title" alt="that cute boi" name="post[title]"/>
+	  <input id="new_post_title" class="defaultText" value="girl with the dragon tatoo" alt="girl with the dragon tatoo" name="post[title]"/>
       <textarea id="new_post_body" class="defaultText"alt="omg on cross campus" name="post[content]">omg on cross campus</textarea>
       <button id="submit_post">Submit!</button>
     </div>
@@ -41,7 +41,7 @@
       <div class="postbox">
         <h2 class="post_title">To: <%= posts[ i ].title %></h2>
         <p class="post_body"><%= posts[ i ].content %></p>
-        <div class="post_time timeago" title="<%= posts[ i ].date %>"><%= posts[ i ].date_display() %></div>
+        <div class="post_time timeago" title="<%= posts[ i ].date_utc() %>"><%= posts[ i ].date_display() %></div>
       </div>
   
     <% } %>

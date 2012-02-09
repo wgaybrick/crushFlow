@@ -85,6 +85,7 @@ h1, h2{
   padding-top: 120px;
   padding-left: 30px;
   width: 425px;
+  min-height:600px;
 }
 
 .postbox, #new_crush_box{
@@ -100,15 +101,18 @@ span#new_post_label{
 	font-weight:bold;
 }
 input#new_post_title, textarea#new_post_body{
-    display:block;
-    width:350px;
     border:1px solid #aaa;
     padding:4px;
     color:#333;
     font-size:16px;
 }
+input#new_post_title{
+    width:352px;
+	margin-left:3px;
+}
 textarea#new_post_body{
-	width:380px;
+	display:block;
+	width:376px;
 }
 #submit_post {
   margin-top: 5px;
