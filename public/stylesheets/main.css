@@ -33,37 +33,37 @@ h1, h2{
 #speech-bubble {
   position: absolute;
   top: 75px;
-  left: 700px;
+  left: 940px;
 }
 
 #post {
   position: absolute;
   top: 107px;
-  left: 725px;
+  left: 965px;
 }
 
 #thought-bubble {
   position: absolute;
   top: 225px;
-  left: 550px;
+  left: 580px;
 }
 
 #profile {
   position: absolute;
   top: 295px;
-  left: 595px;
+  left: 625px;
   cursor: pointer;
 }
 
 #small-heart {
   position: absolute;
-  top: 225px;
-  left: 800px;
+  top: 235px;
+  left: 1040px;
 }
 
 #big-heart {
   position: absolute;
-  top: 440px;
+  top: 590px;
   left: 440px;
   z-index: -1;
 }
@@ -92,8 +92,9 @@ h1, h2{
 
 #puppy {
   position: fixed;
-  right: 0px;
+  right: -20px;
   bottom: 50px;
+  height: 220px;
 }
 
 input#new_post_title, textarea#new_post_body{
