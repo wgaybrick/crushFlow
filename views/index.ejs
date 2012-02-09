@@ -6,51 +6,50 @@
   
   <div id="new_crush_button">
     <img id="speech-bubble" src="images/speech_bubble.png" />
-    <img id="post" src="images/post.png" />
+    <img id="post_button" src="images/post.png" />
   </div>
   
   <img id="small-heart" src="images/small_heart.png" />
   
-  
   <div id="profile-button">
-    <img id="thought-bubble" src="images/thought_bubble.png" />
-    <a href="#"><img id="profile" src="images/profile.png" /></a>
+    <img id="profile-bubble" src="images/thought_bubble.png" />
+    <a href="/"><img id="profile-text" src="images/profile.png" /></a>
   </div>
   
   <img id="big-heart" src="images/big_heart.png" />
   
   <div id="posts">
+	
+	<!-- new post box, starts hidden -->
     <div id="new_crush_box" style="display:none">
-
-      <input id="new_post_title" class="defaultText" value="Title" alt="Title"
-        name="post[title]"/>
-      <textarea id="new_post_body" class="defaultText"
-        alt="omg on cross campus" name="post[content]">omg on cross campus</textarea>
+      <span id="new_post_label">To:</span>
+	  <input id="new_post_title" class="defaultText" value="Title" alt="that cute boi" name="post[title]"/>
+      <textarea id="new_post_body" class="defaultText"alt="omg on cross campus" name="post[content]">omg on cross campus</textarea>
       <button id="submit_post">Submit!</button>
-
     </div>
   
+	<!-- for cloning, always hidden -->
     <div class="postbox" style="display:none">
       <h2 class="post_title"></h2>
       <p class="post_body"></p>
-      <div class="post_time"></div>
+      <div class="post_time timeago"></div>
     </div>
   
+	<!-- insert all the posts from DB -->
     <% for ( var i = 0; i < posts.length; i++ )  { %>
   
       <div class="postbox">
-        <h2 class="post_title"><%= posts[ i ].title %></h2>
+        <h2 class="post_title">To: <%= posts[ i ].title %></h2>
         <p class="post_body"><%= posts[ i ].content %></p>
-        <div class="post_time"><%= posts[ i ].date_display() %></div>
+        <div class="post_time timeago" title="<%= posts[ i ].date %>"><%= posts[ i ].date_display() %></div>
       </div>
-  
   
     <% } %>
   </div>
 
   <img id="puppy" src="images/puppy.png" />
 
-  <div id="footer">&copy; FaceCrush 2011 </div>
+  <div id="footer">&copy; Crushed 2011 </div>
   
 </div>
 

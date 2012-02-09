@@ -24,6 +24,10 @@ $(  document).ready( function () {
         	$( this ).val( $( this ).attr( "alt" ) );
     } );
     // End placeholder code
+
+
+	//Setup 'timeago' plugin
+	 $(".timeago").timeago();
     
     $( '#post' ).hover(
         function () {
