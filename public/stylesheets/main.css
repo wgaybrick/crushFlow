@@ -3,6 +3,18 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Lucida, Arial, sans-serif;
     font-size:12px;
 }
+
+
+#wrapper {
+  width: auto;
+  position: relative;
+  margin-top: 0px;
+}
+
+.clearFix {
+  clear: both;
+}
+
 a {
     text-decoration:none;
     color:#000;
@@ -13,70 +25,90 @@ h1, h2{
     padding-bottom:2px;
 }
 #header {
-    background-color:#f5f5f5;
-    padding:12px;
-    color:#000;
-    border:solid 1px #ccc;
-    width:100%;
-    position:fixed;
-    top:0px;
-    left:0px;
-}
-#logo{
-    margin-left:100px;
-    font-size:14px;
-    padding:0px;
-}
-.nav{
-    margin-left:20px;
-    padding:0px;
+  position: absolute;
+  top: 50px;
+  left: 30px;
 }
 
-#main {
-    margin-top:42px;
-    border:solid 1px #ccc;
-    background-color:#fff;
-    padding: 15px;
-    width:500px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
+#speech-bubble {
+  position: absolute;
+  top: 75px;
+  left: 700px;
 }
-#new_crush_button {
-    padding:15px;
-    background-color:#f5f5f5;
-    color:#000;
-    border:solid 1px #999;
-    margin:15px;
-    height:16px;
-    line-height:16px;
-    width:250px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
+
+#post {
+  position: absolute;
+  top: 107px;
+  left: 725px;
 }
-#new_crush_button:hover{
-    font-weight:bold;
-    background-color:#fff;
-    border:solid 1px #333;
-    cursor:pointer;
+
+#thought-bubble {
+  position: absolute;
+  top: 225px;
+  left: 550px;
 }
+
+#profile {
+  position: absolute;
+  top: 295px;
+  left: 595px;
+  cursor: pointer;
+}
+
+#small-heart {
+  position: absolute;
+  top: 225px;
+  left: 800px;
+}
+
+#big-heart {
+  position: absolute;
+  top: 440px;
+  left: 440px;
+  z-index: -1;
+}
+
+#post:hover {
+  cursor: pointer;
+}
+
+#posts {
+  padding-top: 120px;
+  padding-left: 30px;
+  width: 425px;
+}
+
 .postbox, #new_crush_box{
-    margin-top:15px;
-    border:solid 1px #ccc;
-    padding:15px;
-    text-align:left;
-    background-color:#fff;
-    color:#000;
+    margin-top: 15px;
+    border: solid 3px #000;
+    padding: 15px;
+    text-align: left;
+    background-color: white;
+    color: #000;
+    opacity: 1;
+    
+    
 }
+
+#puppy {
+  position: fixed;
+  right: 0px;
+  bottom: 50px;
+}
+
 input#new_post_title, textarea#new_post_body{
     display:block;
-    width:400px;
+    width:380px;
     border:1px solid #aaa;
     padding:4px;
     color:#333;
     font-size:16px;
 }
+
+#submit_post {
+  margin-top: 5px;
+}
+
 textarea#new_post_body{
     font-size:12px;
     resize:vertical;

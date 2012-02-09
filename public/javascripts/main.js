@@ -25,6 +25,23 @@ $(  document).ready( function () {
     } );
     // End placeholder code
     
+    $( '#post' ).hover(
+        function () {
+          $( this ).attr( "src", "/images/post_hover.png");
+        },
+        function () {
+          $( this ).attr( "src", "/images/post.png" );
+        }
+    );
+    
+    $( '#profile' ).hover(
+        function () {
+          $( this ).attr( "src", "/images/profile_hover.png");
+        },
+        function () {
+          $( this ).attr( "src", "/images/profile.png" );
+        }
+    );
 
     
 });
