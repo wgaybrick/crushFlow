@@ -7,4 +7,16 @@ var routes = [
 
 ]
 
-module.exports = routes;
+function attach_routes( server ) {
+  
+  for ( var i = 0; i < routes.length; i++ ) {
+  	var method = routes[ i ][ "method" ];
+  	var path = routes[ i ][ "path" ];
+  	var handler = routes[ i ][ "handler" ];
+  	server[ method ]( path, handler );
+  }
+  
+}
+
+
+module.exports.attach_routes = attach_routes;

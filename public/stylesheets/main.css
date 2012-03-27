@@ -1,81 +1,121 @@
+/* ---- Main Layout ----- */
 body {
     margin:0px;
     font-family: 'Helvetica Neue', Helvetica, Lucida, Arial, sans-serif;
     font-size:12px;
 }
+#wrapper {
+  width: auto;
+  position: relative;
+  margin-top: 0px;
+}
+
+/*----- Misc Fixes & Defaults --- */
+.clearFix {
+  clear: both;
+}
+
 a {
     text-decoration:none;
     color:#000;
 }
+
 h1, h2{
     margin:0px;
     font-size:20px;
     padding-bottom:2px;
 }
+
+/* ---- Header Bar ---- */
 #header {
-    background-color:#f5f5f5;
-    padding:12px;
-    color:#000;
-    border:solid 1px #ccc;
-    width:100%;
-    position:fixed;
-    top:0px;
-    left:0px;
-}
-#logo{
-    margin-left:100px;
-    font-size:14px;
-    padding:0px;
-}
-.nav{
-    margin-left:20px;
-    padding:0px;
+  position: absolute;
+  top: 50px;
+  left: 30px;
 }
 
-#main {
-    margin-top:42px;
-    border:solid 1px #ccc;
-    background-color:#fff;
-    padding: 15px;
-    width:500px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
+/* ---- the new crush button ---- */
+#new_crush_button:hover {
+  cursor: pointer;
 }
-#new_crush_button {
-    padding:15px;
-    background-color:#f5f5f5;
-    color:#000;
-    border:solid 1px #999;
-    margin:15px;
-    height:16px;
-    line-height:16px;
-    width:250px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
+#new-crush-bubble {
+  position: absolute;
+  top: 75px;
+  left: 940px;
 }
-#new_crush_button:hover{
-    font-weight:bold;
-    background-color:#fff;
-    border:solid 1px #333;
-    cursor:pointer;
+#new-crush-text {
+  position: absolute;
+  top: 107px;
+  left: 965px;
 }
+/* ---- the profile button ---- */
+#profile-bubble {
+  position: absolute;
+  top: 225px;
+  left: 580px;
+}
+#profile-text {
+  position: absolute;
+  top: 295px;
+  left: 625px;
+  cursor: pointer;
+}
+
+/* --- decorative hearts ---- */
+#small-heart {
+  position: absolute;
+  top: 235px;
+  left: 1040px;
+}
+#big-heart {
+  position: absolute;
+  top: 590px;
+  left: 440px;
+  z-index: -1;
+}
+#puppy {
+  position: fixed;
+  right: -20px;
+  bottom: 50px;
+  height: 220px;
+}
+
+
+/* ---- Posts Stream  & Creation box --- */
+#posts {
+  padding-top: 120px;
+  padding-left: 30px;
+  width: 425px;
+  min-height:600px;
+}
+
 .postbox, #new_crush_box{
-    margin-top:15px;
-    border:solid 1px #ccc;
-    padding:15px;
-    text-align:left;
-    background-color:#fff;
-    color:#000;
+    margin-top: 15px;
+    border: solid 5px #000;
+    padding: 15px;
+    text-align: left;
+    background-color: white;
+    color: #000;
+    opacity: 1;  
+}
+span#new_post_label{
+	font-weight:bold;
 }
 input#new_post_title, textarea#new_post_body{
-    display:block;
-    width:400px;
     border:1px solid #aaa;
     padding:4px;
     color:#333;
     font-size:16px;
+}
+input#new_post_title{
+    width:352px;
+	margin-left:3px;
+}
+textarea#new_post_body{
+	display:block;
+	width:376px;
+}
+#submit_post {
+  margin-top: 5px;
 }
 textarea#new_post_body{
     font-size:12px;
@@ -89,6 +129,8 @@ textarea#new_post_body{
     font-size:11px;
     color:#999;
 }
+
+/* ---- Foooter Bar --- */
 #footer{
     margin-top:100px;
     width:200px;

@@ -9,7 +9,13 @@ var express = require( 'express' )
 
 var app = module.exports = express.createServer()
   , io = require( 'socket.io' ).listen( app );
-  
+
+// assuming io is the Socket.IO server object
+io.configure( function () { 
+  io.set( "transports", ["xhr-polling"] ); 
+  io.set( "polling duration", 10 ); 
+} );
+
 var posts_controller = require( './controllers/posts_controller.js' )
 
 // Configuration
@@ -37,12 +43,7 @@ app.configure( 'production', function () {
 
 
 // Attach routes
-for ( var i = 0; i < routes.length; i++ ) {
-	var method = routes[ i ][ "method" ];
-	var path = routes[ i ][ "path" ];
-	var handler = routes[ i ][ "handler" ];
-	app[ method ]( path, handler );
-}
+routes.attach_routes( app );
 
 // Attach socket listeners
 io.sockets.on( 'connection', function ( socket ) {

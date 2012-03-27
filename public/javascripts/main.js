@@ -1,6 +1,6 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://localhost' );
+    var socket = io.connect();
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
     } );
@@ -24,7 +24,28 @@ $(  document).ready( function () {
         	$( this ).val( $( this ).attr( "alt" ) );
     } );
     // End placeholder code
+
+
+	//Setup 'timeago' plugin
+	 $(".timeago").timeago();
     
+    $( '#post' ).hover(
+        function () {
+          $( this ).attr( "src", "/images/post_hover.png");
+        },
+        function () {
+          $( this ).attr( "src", "/images/post.png" );
+        }
+    );
+    
+    $( '#profile' ).hover(
+        function () {
+          $( this ).attr( "src", "/images/profile_hover.png");
+        },
+        function () {
+          $( this ).attr( "src", "/images/profile.png" );
+        }
+    );
 
     
 });
