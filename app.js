@@ -17,16 +17,24 @@ io.configure( function () {
 } );
 
 var posts_controller = require( './controllers/posts_controller.js' )
+var MemStore = express.session.MemoryStore;
 
 // Configuration
-
 app.configure(function () {
   app.set( 'views' , __dirname + '/views' );
   app.set( 'view engine', 'ejs' );
   app.use( express.bodyParser() );
   app.use( express.methodOverride() );
-  app.use( app.router );
+
   app.use( express.static(__dirname + '/public') );
+
+  // Session config below
+  app.use( express.cookieParser() );
+  app.use( express.session( { secret: 'a_super_secret_password_here', store: MemStore( {
+    reapInterval: 60000 * 10
+  } ) } ) );
+  
+  app.use( app.router );
 });
 
 app.configure( 'development', function () {

@@ -1,7 +1,3 @@
-/*
- * GET home page.
- */
-
 var Post = require( '../models/post.js' );
 var util = require( 'util' );
 
