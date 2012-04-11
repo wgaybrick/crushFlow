@@ -1,4 +1,4 @@
-/**
+/*
  * Module dependencies.
  */
 
@@ -35,6 +35,16 @@ app.configure(function () {
   } ) } ) );
   
   app.use( app.router );
+  
+  app.dynamicHelpers( {
+    session: function( req, res ) {
+      return req.session;
+    },
+    
+    flash: function( req, res ) {
+      return req.flash(); // Fetches contents of and clears flash
+    }
+  } );
 });
 
 app.configure( 'development', function () {

@@ -33,6 +33,10 @@ h1, h2{
   left: 30px;
 }
 
+#layout_header {
+  float: right;
+}
+
 /* ---- the new crush button ---- */
 #new_crush_button:hover {
   cursor: pointer;

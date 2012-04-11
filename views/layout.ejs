@@ -10,6 +10,22 @@
 		<script type='text/javascript' src="/javascripts/main.js"></script>
   </head>
   <body>
-    <%- body %>
+    <div id="main">
+      
+      <div id="layout_header">
+        <% if ( session.user ) { %>
+            Logged in as <%= session.user.name %> | 
+
+            <a href="/sessions/destroy">Logout</a>
+        <% } %>
+
+        <% if ( flash.warn ) { %>
+          <p id="warn"><%= flash.warn %></p>
+          <% } %>
+      
+      </div>
+    
+        <%- body %>
+    </div>
   </body>
 </html>
